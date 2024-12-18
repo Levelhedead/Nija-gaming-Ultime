@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Kageno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Style général pour le corps */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #063f54;
+            color: #fff;
+            overflow: hidden; /* Empêche le défilement pendant l'animation */
+        }
+
+        /* Section d'introduction */
+        #intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 2s ease 3s forwards; /* Animation pour disparaître après 3 secondes */
+        }
+
+        #site-name {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #f39c12;
+            animation: zoomIn 2s ease; /* Animation pour faire un zoom avant */
+        }
+
+        /* Contenu principal (invisible pendant l'intro) */
+        #main-content {
+            display: none;
+            animation: fadeIn 1s ease 3s forwards; /* Apparaît après l'intro */
+        }
+
+        /* Animation zoom avant pour le texte */
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Animation de disparition de l'intro */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Animation d'apparition du contenu principal */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Style pour la section des jeux */
+        #games {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background-color: #133db0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .game-card h3 {
+            margin: 10px 0;
+        }
+
+        .game-card p {
+            color: #bbb;
+        }
+
+        .game-card .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .game-card .btn:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SHADOW KAGENO GAME</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Acceuil</a></li>
+                <li><a href="#game">Jeux</a></li>
+                <li><a href="#about">A propos</a></li>
+            </ul>
+        <nav>
+    </header>
+    <!-- Animation d'introduction -->
+    <div id="intro">
+        <h1 id="site-name">Shadow Kageno</h1>
+    </div>
+
+    <!-- Contenu principal -->
+        <div id="main-content">
+        <section id="games">
+            <h2>Nos Jeux</h2>
+            <div class="game-container">
+                <div class="game-card">
+                    <img src="game1.jpg" alt="Jeu 1">
+                    <h3>Jeu 1</h3>
+                    <p>Un jeu de combat hyper stylé.</p>
+                    <a href="jeu1.zip" class="btn">Télécharger</a>
+                </div>
+                <div class="game-card">
+                    <img src="game2.jpg" alt="Jeu 2">
+                    <h3>Jeu 2</h3>
+                    <p>Un autre jeu incroyable à découvrir.</p>
+                    <a href="jeu2.zip" class="btn">Télécharger</a>
+                </div>
+                <!-- Ajoute d'autres jeux ici -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+
+        // Affiche le contenu principal après l'animation d'introduction
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                document.getElementById("main-content").style.display = "block";
+            }, 3000); // Correspond à la durée de l'animation d'introduction (3 secondes)
+        });
+    </script>
+</body>
+</html>
